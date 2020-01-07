@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 
 
+
 namespace LabLappolainen2
 {
     public partial class Form1 : System.Windows.Forms.Form
@@ -206,6 +207,7 @@ namespace LabLappolainen2
                 drawing = true;
                 oldLocation = e.Location;
                 currentPath = new GraphicsPath();
+                /*currentPen = System.Drawing.Color.historyColor;*/
                 
             }
             if (e.Button == MouseButtons.Right)
@@ -275,7 +277,7 @@ namespace LabLappolainen2
 
         private void ToolStripButton5_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void Panel2_Paint(object sender, PaintEventArgs e)
@@ -285,12 +287,52 @@ namespace LabLappolainen2
 
         private void PicDrawingSurface_MouseUp(object sender, MouseEventArgs e)
         {
+            if(figuri == 1)
+            {
             Graphics g = Graphics.FromImage(picDrawingSurface.Image);
             currentPath.AddRectangle(new Rectangle(locallX,locallY,locallXO,locallYO));
             g.DrawPath(currentPen, currentPath);
             oldLocation = e.Location;
             g.Dispose();
             picDrawingSurface.Invalidate();
+
+            }
+            if (figuri == 3)
+            {
+                Graphics g = Graphics.FromImage(picDrawingSurface.Image);
+                Point[] pnt = new Point[3];
+
+                pnt[0].X = locallX;
+                pnt[0].Y = locallY;
+
+                pnt[1].X = locallX + locallXO;
+                pnt[1].Y = locallY + locallYO;
+
+                pnt[2].X = locallX + locallXO;
+                pnt[2].Y = locallY + -locallYO;
+                
+                g.DrawPolygon(currentPen, pnt);
+                g.Dispose();
+                picDrawingSurface.Invalidate();
+            }
+            
+            
+            if (figuri == 2)
+            {
+                Graphics g = Graphics.FromImage(picDrawingSurface.Image);
+                currentPath.AddEllipse(locallX, locallY, locallXO, locallYO);
+                g.DrawPath(currentPen, currentPath);
+                oldLocation = e.Location;
+                g.Dispose();
+                picDrawingSurface.Invalidate();
+
+
+            }
+            
+            
+
+
+
 
             History.RemoveRange(historyCounter + 1, History.Count - historyCounter - 1);
             History.Add(new Bitmap(picDrawingSurface.Image));
@@ -303,12 +345,13 @@ namespace LabLappolainen2
             }
             catch { };
             imgOriginal = picDrawingSurface.Image;
+
         }
 
         private void PicDrawingSurface_MouseMove(object sender, MouseEventArgs e)
         {
             
-            label1.Text = e.X.ToString() + ", " + e.Y.ToString();
+            label1.Text = "X= "  + e.X.ToString() + ", Y= " + e.Y.ToString();
             if (drawing)
             {
                 if (figuri == 0)
@@ -329,6 +372,8 @@ namespace LabLappolainen2
 
                 }
                 
+                
+
             }
         }
 
@@ -381,14 +426,7 @@ namespace LabLappolainen2
 
         private void BoxToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            currentPen.DashStyle = DashStyle.Solid;
-            this.solidToolStripMenuItem.Checked = false;
-            this.dotToolStripMenuItem.Checked = false;
-            this.dashDotDotToolStripMenuItem.Checked = false;
-            this.boxToolStripMenuItem.Checked = true;
-
-
-            figuri = 1;
+            
 
         }
 
@@ -402,6 +440,77 @@ namespace LabLappolainen2
             Graphics g = Graphics.FromImage(bmp);
             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
             return bmp;
+        }
+
+        private void EllipseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void RectangleToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Solid;
+            this.solidToolStripMenuItem.Checked = false;
+            this.dotToolStripMenuItem.Checked = false;
+            this.dashDotDotToolStripMenuItem.Checked = false;
+            this.boxToolStripMenuItem1.Checked = false;
+            this.lineToolStripMenuItem.Checked = false;
+            this.RectangleToolStripMenuItem1.Checked = true;
+
+
+            figuri = 3;
+        }
+
+        private void RectangleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EllipseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Solid;
+            this.solidToolStripMenuItem.Checked = false;
+            this.dotToolStripMenuItem.Checked = false;
+            this.dashDotDotToolStripMenuItem.Checked = false;
+            this.boxToolStripMenuItem1.Checked = false;
+            this.ellipseToolStripMenuItem1.Checked = true;
+            this.lineToolStripMenuItem.Checked = false;
+            this.RectangleToolStripMenuItem1.Checked = false;
+
+            figuri = 2;
+        }
+
+        private void BoxToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Solid;
+            this.solidToolStripMenuItem.Checked = false;
+            this.dotToolStripMenuItem.Checked = false;
+            this.dashDotDotToolStripMenuItem.Checked = false;
+            this.boxToolStripMenuItem1.Checked = true;
+            this.ellipseToolStripMenuItem1.Checked = false;
+            this.lineToolStripMenuItem.Checked = false;
+            this.RectangleToolStripMenuItem1.Checked = false;
+
+
+            figuri = 1;
+        }
+
+        private void LineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentPen.DashStyle = DashStyle.Solid;
+            this.solidToolStripMenuItem.Checked = false;
+            this.dotToolStripMenuItem.Checked = false;
+            this.dashDotDotToolStripMenuItem.Checked = false;
+            this.boxToolStripMenuItem1.Checked = false;
+            this.lineToolStripMenuItem.Checked = true;
+            this.RectangleToolStripMenuItem1.Checked = false;
+
+            figuri = 0;
+        }
+
+        private void FillToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

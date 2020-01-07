@@ -45,6 +45,11 @@
             this.dotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dashDotDotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.figuresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RectangleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ellipseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.boxToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -56,18 +61,18 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.picDrawingSurface = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.boxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.fillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingSurface)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -148,7 +153,8 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
-            this.penToolStripMenuItem});
+            this.penToolStripMenuItem,
+            this.fillToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -181,7 +187,7 @@
             this.penToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.styleToolStripMenuItem,
             this.colorToolStripMenuItem,
-            this.boxToolStripMenuItem});
+            this.figuresToolStripMenuItem});
             this.penToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("penToolStripMenuItem.Image")));
             this.penToolStripMenuItem.Name = "penToolStripMenuItem";
             this.penToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
@@ -196,7 +202,7 @@
             this.dotToolStripMenuItem,
             this.dashDotDotToolStripMenuItem});
             this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
-            this.styleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.styleToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.styleToolStripMenuItem.Text = "Style";
             // 
             // solidToolStripMenuItem
@@ -205,7 +211,7 @@
             this.solidToolStripMenuItem.Checked = true;
             this.solidToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.solidToolStripMenuItem.Name = "solidToolStripMenuItem";
-            this.solidToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.solidToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.solidToolStripMenuItem.Text = "Solid";
             this.solidToolStripMenuItem.Click += new System.EventHandler(this.SolidToolStripMenuItem_Click);
             // 
@@ -213,7 +219,7 @@
             // 
             this.dotToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.dotToolStripMenuItem.Name = "dotToolStripMenuItem";
-            this.dotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dotToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.dotToolStripMenuItem.Text = "Dot";
             this.dotToolStripMenuItem.Click += new System.EventHandler(this.DotToolStripMenuItem_Click);
             // 
@@ -221,7 +227,7 @@
             // 
             this.dashDotDotToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.dashDotDotToolStripMenuItem.Name = "dashDotDotToolStripMenuItem";
-            this.dashDotDotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dashDotDotToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.dashDotDotToolStripMenuItem.Text = "DashDotDot";
             this.dashDotDotToolStripMenuItem.Click += new System.EventHandler(this.DashDotDotToolStripMenuItem_Click);
             // 
@@ -230,9 +236,48 @@
             this.colorToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.colorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("colorToolStripMenuItem.Image")));
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.colorToolStripMenuItem.Text = "Color";
             this.colorToolStripMenuItem.Click += new System.EventHandler(this.ColorToolStripMenuItem_Click);
+            // 
+            // figuresToolStripMenuItem
+            // 
+            this.figuresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RectangleToolStripMenuItem1,
+            this.ellipseToolStripMenuItem1,
+            this.boxToolStripMenuItem1,
+            this.lineToolStripMenuItem});
+            this.figuresToolStripMenuItem.Name = "figuresToolStripMenuItem";
+            this.figuresToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.figuresToolStripMenuItem.Text = "Figures";
+            // 
+            // RectangleToolStripMenuItem1
+            // 
+            this.RectangleToolStripMenuItem1.Name = "RectangleToolStripMenuItem1";
+            this.RectangleToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.RectangleToolStripMenuItem1.Text = "Triangle";
+            this.RectangleToolStripMenuItem1.Click += new System.EventHandler(this.RectangleToolStripMenuItem1_Click);
+            // 
+            // ellipseToolStripMenuItem1
+            // 
+            this.ellipseToolStripMenuItem1.Name = "ellipseToolStripMenuItem1";
+            this.ellipseToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.ellipseToolStripMenuItem1.Text = "Ellipse";
+            this.ellipseToolStripMenuItem1.Click += new System.EventHandler(this.EllipseToolStripMenuItem1_Click);
+            // 
+            // boxToolStripMenuItem1
+            // 
+            this.boxToolStripMenuItem1.Name = "boxToolStripMenuItem1";
+            this.boxToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.boxToolStripMenuItem1.Text = "Box";
+            this.boxToolStripMenuItem1.Click += new System.EventHandler(this.BoxToolStripMenuItem1_Click);
+            // 
+            // lineToolStripMenuItem
+            // 
+            this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.lineToolStripMenuItem.Text = "Free-Line";
+            this.lineToolStripMenuItem.Click += new System.EventHandler(this.LineToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -359,6 +404,14 @@
             this.panel1.Size = new System.Drawing.Size(763, 40);
             this.panel1.TabIndex = 3;
             // 
+            // trackBar2
+            // 
+            this.trackBar2.Location = new System.Drawing.Point(208, 0);
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(217, 45);
+            this.trackBar2.TabIndex = 4;
+            this.trackBar2.Scroll += new System.EventHandler(this.TrackBar2_Scroll);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -391,20 +444,12 @@
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
-            // boxToolStripMenuItem
+            // fillToolStripMenuItem
             // 
-            this.boxToolStripMenuItem.Name = "boxToolStripMenuItem";
-            this.boxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.boxToolStripMenuItem.Text = "Box";
-            this.boxToolStripMenuItem.Click += new System.EventHandler(this.BoxToolStripMenuItem_Click);
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(208, 0);
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(217, 45);
-            this.trackBar2.TabIndex = 4;
-            this.trackBar2.Scroll += new System.EventHandler(this.TrackBar2_Scroll);
+            this.fillToolStripMenuItem.Name = "fillToolStripMenuItem";
+            this.fillToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.fillToolStripMenuItem.Text = "Fill";
+            this.fillToolStripMenuItem.Click += new System.EventHandler(this.FillToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -428,9 +473,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingSurface)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,8 +513,13 @@
         private System.Windows.Forms.PictureBox picDrawingSurface;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem boxToolStripMenuItem;
         private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.ToolStripMenuItem figuresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RectangleToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem ellipseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem boxToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem lineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fillToolStripMenuItem;
     }
 }
 

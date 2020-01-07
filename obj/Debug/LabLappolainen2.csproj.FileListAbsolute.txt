@@ -8,3 +8,4 @@ C:\Users\opilane\source\repos\LabLappolainen2\obj\Debug\LabLappolainen2.csproj.G
 C:\Users\opilane\source\repos\LabLappolainen2\obj\Debug\LabLappolainen2.csproj.CoreCompileInputs.cache
 C:\Users\opilane\source\repos\LabLappolainen2\obj\Debug\LabLappolainen2.exe
 C:\Users\opilane\source\repos\LabLappolainen2\obj\Debug\LabLappolainen2.pdb
+C:\Users\opilane\source\repos\LabLappolainen2\obj\Debug\LabLappolainen2.csprojAssemblyReference.cache
